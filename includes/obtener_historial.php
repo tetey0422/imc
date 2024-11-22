@@ -33,7 +33,7 @@ try {
         INNER JOIN timc_usuario tu ON t.nimcID = tu.nimcFK
         INNER JOIN tusuario u ON tu.nusuarioFK = u.nusuarioID
         WHERE u.ccedula = ?
-        ORDER BY t.dfecha DESC";
+        ORDER BY t.dfecha DESC, t.dfecha DESC";
 
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $cedula);
