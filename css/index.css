@@ -10,7 +10,7 @@ main {
     background-color: #FFFAAD;
     box-shadow: 0px 0px 5px #000000;
     border-radius: 1rem;
-    margin: 10px;
+    margin: 2rem auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,4 +23,60 @@ form {
     width: 100%;
     gap: 1rem;
     margin: 0 0 1.5rem 0;
+}
+
+/* Estilos para la validación y mensajes de error */
+.error-mensaje {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.error-mensaje:not(:empty) {
+    display: block;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #dc3545;
+    margin: 10px 0;
+    width: 80%;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+}
+
+input[type="text"]:invalid {
+    border-color: #dc3545;
+}
+
+input[type="text"]:valid {
+    border-color: #28a745;
+}
+
+button {
+    background-color: #043e80;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }

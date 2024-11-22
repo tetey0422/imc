@@ -1,6 +1,11 @@
+footer {
+    margin-top: auto;
+    width: 100%;
+}
+
 #info-copy {
     margin: 0px;
-    padding-top: 10px;
+    padding: 10px;
     background: black;
     color: gray;
     font-family: 'Roboto', sans-serif;
