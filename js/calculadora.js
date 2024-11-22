@@ -347,4 +347,69 @@ function crearGraficaIMC(data) {
     const ctx = document.createElement('canvas');
     document.getElementById('grafica-imc').appendChild(ctx);
     new Chart(ctx, config);
+
+    function mostrarHistorial(data) {
+        const historialDiv = document.getElementById('historial');
+        historialDiv.innerHTML = '';
+
+        data.forEach((entrada, index) => {
+            const entradaDiv = document.createElement('div');
+            entradaDiv.classList.add('entrada-historial');
+            entradaDiv.innerHTML = `
+            <p>${formatearFecha(entrada.dfecha)} - IMC: ${entrada.nimc}</p>
+            <button onclick="eliminarEntradaHistorial(${index})">Eliminar</button>
+        `;
+            historialDiv.appendChild(entradaDiv);
+        });
+    }
 }
+
+//Modificar la función que muestra el historial
+// let eliminaciones = [];
+
+// function mostrarHistorial(data) {
+//     const historialDiv = document.getElementById('historial');
+//     historialDiv.innerHTML = '';
+
+//     data.forEach((entrada, index) => {
+//         const entradaDiv = document.createElement('div');
+//         entradaDiv.classList.add('entrada-historial');
+//         entradaDiv.innerHTML = `
+//             <p>${formatearFecha(entrada.dfecha)} - IMC: ${entrada.nimc}</p>
+//             <button onclick="eliminarEntradaHistorial(${index})">Eliminar</button>
+//         `;
+//         historialDiv.appendChild(entradaDiv);
+//     });
+// }
+
+// function eliminarEntradaHistorial(index) {
+//     const historialDiv = document.getElementById('historial');
+//     const entradaDiv = historialDiv.children[index];
+
+//     // Registrar la eliminación
+//     eliminaciones.push({
+//         index: index,
+//         fecha: entradaDiv.querySelector('p').textContent,
+//         imc: entradaDiv.querySelector('p').textContent.split(' - IMC: ')[1]
+//     });
+
+//     // Eliminar la entrada de la vista del usuario
+//     entradaDiv.style.display = 'none';
+
+//     // Guardar las eliminaciones
+//     guardarEliminaciones();
+// }
+
+// function guardarEliminaciones() {
+//     localStorage.setItem('eliminaciones', JSON.stringify(eliminaciones));
+// }
+
+// function cargarEliminaciones() {
+//     const eliminacionesGuardadas = localStorage.getItem('eliminaciones');
+//     if (eliminacionesGuardadas) {
+//         eliminaciones = JSON.parse(eliminacionesGuardadas);
+//     }
+// }
+
+// // Llamar a cargarEliminaciones al cargar la página
+// window.onload = cargarEliminaciones;
