@@ -40,14 +40,14 @@ function toggleAlturaOptions() {
         unidadAltura.textContent = 'metros';
         unidadPeso.textContent = 'kg';
         alturaInput.step = '0.01';
-        alturaInput.placeholder = 'Ej: 1.75';
-        pesoInput.placeholder = 'Ej: 70';
+        alturaInput.placeholder = 'Ej: 1.70'; // 1.70 metros
+        pesoInput.placeholder = 'Ej: 70'; // Peso en kg
     } else {
         alturaImperial.style.display = 'block';
         unidadPeso.textContent = 'libras';
         alturaInput.step = '0.1';
         actualizarPlaceholdersImperial();
-        pesoInput.placeholder = 'Ej: 150';
+        pesoInput.placeholder = 'Ej: 154'; // Peso en libras (aproximadamente 70 kg)
     }
 
     // Limpiar valores anteriores
@@ -62,10 +62,10 @@ function actualizarPlaceholdersImperial() {
     const unidadAlturaSpan = document.getElementById('unidadAltura');
 
     if (unidadAltura === 'pies') {
-        alturaInput.placeholder = 'Ej: 5.8';
+        alturaInput.placeholder = 'Ej: 5.6'; // 1.70 metros son aproximadamente 5.6 pies
         unidadAlturaSpan.textContent = 'pies';
     } else {
-        alturaInput.placeholder = 'Ej: 70';
+        alturaInput.placeholder = 'Ej: 67'; // 1.70 metros son aproximadamente 67 pulgadas
         unidadAlturaSpan.textContent = 'pulgadas';
     }
 
@@ -185,7 +185,7 @@ function guardarResultado(cedula, altura, peso, imc, categoria) {
     formData.append('imc', imc.toFixed(2));
     formData.append('categoria', categoria);
 
-    fetch('procesar_imc.php', {
+    fetch('includes/procesar_imc.php', {
         method: 'POST',
         body: formData
     })
